@@ -102,8 +102,8 @@ def judge(category_id):
         maybe_init_annotator(annotator, annotator_category)
         if annotator_category.next is None:
             return render_template(
-                'wait.html',
-                content=utils.render_markdown(settings.WAIT_MESSAGE)
+                'empty.html',
+                content=utils.render_markdown(settings.NO_MORE_IN_CATEGORY_MESSAGE)
             )
         elif annotator_category.prev is None:
             return render_template('begin.html', item=annotator_category.next, category=annotator_category.category)

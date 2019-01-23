@@ -64,3 +64,8 @@ Wait for a little bit and reload the page to try again.
 
 If you've looked at all the projects already, then you're done.
 '''.strip()
+
+DEFAULT_NO_MORE_IN_CATEGORY_MESSAGE = '''
+You have judged all the projects in this category. Please press
+"View All Categories" below to view other categories you can vote for.
+'''.strip()
