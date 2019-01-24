@@ -1,4 +1,4 @@
-This folder contains scripts that transform CSV data exported from Devpost to a format accepted by Gavel (the version used by nwHacks that supports multiple categories).
+This folder contains scripts that transform CSV data exported from Devpost to a format accepted by Gavel (the version that supports multiple categories).
 
 It currently exports `projects` and `categories`.
 
