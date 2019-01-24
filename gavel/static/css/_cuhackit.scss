@@ -148,7 +148,7 @@ footer {
 
 footer .foot {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   background-color: $footer-bg;
   margin: 0 auto;
   text-align: center;
@@ -173,8 +173,8 @@ footer .foot .social .icon-last {
 }
 
 footer .foot .links {
-  display: inline-block;
-  margin: 30px auto;
+  display: contents;
+  margin: 10px auto;
   font-size: 19px;
   font-weight: lighter !important;
   color: white;
