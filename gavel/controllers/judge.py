@@ -102,7 +102,7 @@ def judge(category_id):
         maybe_init_annotator(annotator, annotator_category)
         if annotator_category.next is None:
             return render_template(
-                'empty.html',
+                'complete.html',
                 content=utils.render_markdown(settings.NO_MORE_IN_CATEGORY_MESSAGE)
             )
         elif annotator_category.prev is None:
