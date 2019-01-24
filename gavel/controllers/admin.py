@@ -325,12 +325,10 @@ def annotator_detail(annotator_id):
 		categories = Category.query.order_by(Category.id).filter(~Category.id.in_(category_ids))
 
 
-		viewed = {}
-		for cat in categories:
-			viewed_item = set()
-			for item in ItemCategory.query.filter(ItemCategory.category.contains(cat.id)):
-				viewed_item.add(item)
-				viewed[cat.id] = viewed_item
+		decisions = Decision.query.filter(Decision.category_id == category.id).all()
+		counts = {}
+		for d in decisions:
+			counts[d.category_id] = counts.get(a, 0) + 1
 
 
 		seen = [
@@ -353,7 +351,7 @@ def annotator_detail(annotator_id):
 			'admin_annotator.html',
 			annotator=annotator,
 			login_link=annotator_link(annotator),
-			viewed=viewed,
+			counts=counts,
 			seen=seen,
 			skipped=skipped,
 			categories=categories
