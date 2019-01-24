@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Judge{% endblock %}
+{% block title %}Judge|Edit{% endblock %}
 {% block content %}
 <div class="item">
   <div class="banner" id="admin-header">
@@ -35,6 +35,7 @@
               <tr>
                 <th data-sort-method="number">Id</th>
                 <th data-sort-method="caseInsensitiveSort">Name</th>
+								<th class="no-sort">Seen</th>
                 <th class="no-sort">Delete</th>
               </tr>
             </thead>
@@ -45,6 +46,9 @@
                   <td>
                     {{ category.category.name | safe }}
                   </td>
+									<td>
+										{{ len(seen) }}
+									</td>
                   <td class="compact">
                     <form action="/admin/annotator_patch" method="post">
                       <input type="submit" name="action" value="Delete Category" class="neutral">

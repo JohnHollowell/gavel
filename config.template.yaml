@@ -77,6 +77,13 @@ timeout: null
 welcome_message: null
 
 # can't be specified via environment variable
+# defaults to gavel.constants.DEFAULT_NO_MORE_IN_CATEGORY_MESSAGE
+#
+# this is the message that's shown to judges when they have judged all items in a category.
+# the message is rendered as Markdown.
+no_more_in_category: null
+
+# can't be specified via environment variable
 # defaults to gavel.constants.DEFAULT_CLOSED_MESSAGE
 #
 # this is the message that's shown to judges when the judging system is closed.

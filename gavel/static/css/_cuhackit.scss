@@ -57,7 +57,7 @@ body {
   border: 0;
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: scroll;
   height: 100%;
   width: 100%;
 }
@@ -132,7 +132,7 @@ th {
   font-size: 14pt;
 }
 
-$footer-bg: #4d5682;
+$footer-bg: #0016FF;
 
 #footer {
   background-color: $footer-bg;
@@ -147,7 +147,7 @@ footer {
 }
 
 footer .foot {
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: $footer-bg;
   margin: 0 auto;

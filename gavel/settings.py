@@ -79,4 +79,4 @@ EMAIL_CC =                 _list(c.get('email_cc',                   'EMAIL_CC',
 EMAIL_SUBJECT =                  c.get('email_subject',                                             default=constants.DEFAULT_EMAIL_SUBJECT)
 EMAIL_BODY =                     c.get('email_body',                                                default=constants.DEFAULT_EMAIL_BODY)
 SEND_STATS =               _bool(c.get('send_stats',                 'SEND_STATS',                  default=True))
-NO_MORE_IN_CATEGORY_MESSAGE =    c.get('no_more_in_category',        'NO_MORE_IN_CATEGORY_MESSAGE', default=constants.DEFAULT_NO_MORE_IN_CATEGORY_MESSAGE)
+NO_MORE_IN_CATEGORY_MESSAGE =    c.get('no_more_in_category',                                       default=constants.DEFAULT_NO_MORE_IN_CATEGORY_MESSAGE)

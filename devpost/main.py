@@ -18,7 +18,7 @@ tables_in_use = {}
 projects = {}
 
 # increase field size limit to handle large descriptions from Devpost projects
-csv.field_size_limit(sys.maxsize)
+# csv.field_size_limit(sys.maxsize)
 
 '''
 Returns command line arguments
@@ -47,9 +47,9 @@ def populate_projects():
 
 '''
 Returns a list of categories parsed from "Desired Prizes" field of input csv
-Requirements: Prize names cannot contain commas unless surrounded by 
+Requirements: Prize names cannot contain commas unless surrounded by
               double-quotes because it's impossible to determine the
-              word boundaries otherwise. On Devpost, ensure that 
+              word boundaries otherwise. On Devpost, ensure that
               category names with commas meet this condtion. Examples:
                 - Invalid: The best, most expensive category
                 - Valid: The "best, most expensive" category
@@ -142,7 +142,7 @@ def export_projects():
 
 '''
 Exports all category names (found in the input CSV) as a CSV file that Gavel can accept.
-''' 
+'''
 def export_available_categories():
     all_categories = {}
     for category_name in MANDATORY_CATEGORIES:
