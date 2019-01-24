@@ -6,37 +6,37 @@ $branding-green: $primary-color;
 
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu.ttf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/font/Apercu.ttf)
     format("opentype");
 }
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu-Light.otf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/master/font/Apercu-Light.otf)
     format("opentype");
   font-weight: 500;
 }
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu-Bold.otf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/font/Apercu-Bold.otf)
     format("opentype");
   font-weight: bold;
 }
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu-BoldItalic.otf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/font/Apercu-BoldItalic.otf)
     format("opentype");
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu-Light.otf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/font/Apercu-Light.otf)
     format("opentype");
   font-weight: 200;
 }
 @font-face {
   font-family: "Apercu";
-  src: url(https://cdn.rawgit.com/nwhacks/nwhacks2018_static/master/font/Apercu%20Light%20Italic.ttf)
+  src: url(https://raw.githubusercontent.com/CUHackers/cuhackit-common/master/font/Apercu%20Light%20Italic.ttf)
     format("opentype");
   font-weight: lighter;
   font-style: italic;
@@ -57,7 +57,7 @@ body {
   border: 0;
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
-  overflow-x: scroll;
+  overflow-x: hidden;
   height: 100%;
   width: 100%;
 }
