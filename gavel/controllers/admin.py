@@ -324,11 +324,12 @@ def annotator_detail(annotator_id):
 		]
 		categories = Category.query.order_by(Category.id).filter(~Category.id.in_(category_ids))
 
-
-		decisions = Decision.query.filter(Decision.category_id == category.id).all()
-		counts = {}
-		for d in decisions:
-			counts[d.category_id] = counts.get(a, 0) + 1
+		# for each category, find all decisions for this annotator in that category and add them up
+		for category in categories:
+			decisions = Decision.query.filter(Decision.annotator_id == annotator.id).filter(Decision.category_id == category.id).all()
+			counts = {}
+			for d in decisions:
+				counts[d.category_id] = counts.get(a, 0) + 1
 
 
 		seen = [
