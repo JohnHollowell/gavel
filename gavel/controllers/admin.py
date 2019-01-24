@@ -325,14 +325,22 @@ def annotator_detail(annotator_id):
 		categories = Category.query.order_by(Category.id).filter(~Category.id.in_(category_ids))
 
 
+		# DEBUG
 		import sys
+		import logging
+		from flask import Flask
+		app = Flask(__name__)
+		app.logger.addHandler(logging.StreamHandler(sys.stdout))
+		app.logger.setLevel(logging.INFO)
+
+
 		counts = {}
 		# for each category, find all decisions for this annotator in that category and add them up
 		for category in categories:
 			decisions = Decision.query.filter(Decision.annotator_id == annotator.id).filter(Decision.category_id == category.id).all()
 			for d in decisions:
 				counts[d.category_id] = counts.get(d.category_id, 0) + 1
-			sys.stdout.write("filtering {}\'s {} category. found {}".format(annotator.id, category.id,counts.get(d.category_id, 0)))
+			print("filtering {}\'s {} category. found {}".format(annotator.id, category.id,counts.get(d.category_id, 0)))
 
 		seen = [
 			ic.item_id
