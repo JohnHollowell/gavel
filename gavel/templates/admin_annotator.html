@@ -47,7 +47,7 @@
                     {{ category.category.name | safe }}
                   </td>
 									<td>
-										{{ len(seen) }}
+										{{ viewed.get(item.id, {}) | length }}
 									</td>
                   <td class="compact">
                     <form action="/admin/annotator_patch" method="post">
