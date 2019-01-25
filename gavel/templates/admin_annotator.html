@@ -46,11 +46,6 @@
                   <td>
                     {{ category.category.name | safe }}
                   </td>
-                  <!--
-	                  <td>
-	                    {{ counts.get(category.category_id, 0) }}
-	                  </td>
-                  -->
                   <td class="compact">
                     <form action="/admin/annotator_patch" method="post">
                       <input type="submit" name="action" value="Delete Category" class="neutral">
