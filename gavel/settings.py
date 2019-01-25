@@ -1,55 +1,65 @@
 import gavel.constants as constants
 import os
 import yaml
+import urllib
 
 BASE_DIR = os.path.dirname(__file__)
 CONFIG_FILE = os.path.join(BASE_DIR, '..', 'config.yaml')
 
 class Config(object):
 
-    def __init__(self, config_file):
-        if not _bool(os.environ.get('IGNORE_CONFIG_FILE', False)):
-            with open(config_file) as f:
-                self._config = yaml.safe_load(f)
-        else:
-            self._config = {}
+	def __init__(self, config_file):
+		if not _bool(os.environ.get('IGNORE_CONFIG_FILE', False)):
+			try:
+				if _bool(os.environ.get('REMOTE_CONFIG_FILE', False)):
+					config_file = os.environ.get('REMOTE_CONFIG_FILE_LOCATION', config_file)
+					with urllib.urlopen(config_file) as furl:
+						self._config = yaml.safe_load(furl)
+				else:
+					with open(config_file) as f:
+						self._config = yaml.safe_load(f)
+			# EnvironmentError is parent of IOError, OSError, and WindowsError (where applicable)
+			except EnvironmentError:
+				self._config = {}
+		else:
+			self._config = {}
 
-    # checks for an environment variable first, then an entry in the config file,
-    # and then falls back to default
-    def get(self, name, env_names=None, default=None):
-        setting = None
-        if env_names is not None:
-            if not isinstance(env_names, list):
-                env_names = [env_names]
-            for env_name in env_names:
-                setting = os.environ.get(env_name, None)
-                if setting is not None:
-                    break
-        if setting is None:
-            setting = self._config.get(name, None)
-        if setting is None:
-            if default is not None:
-                return default
-            else:
-                raise LookupError('Cannot find value for setting %s' % name)
-        return setting
+	# checks for an environment variable first, then an entry in the config file,
+	# and then falls back to default
+	def get(self, name, env_names=None, default=None):
+		setting = None
+		if env_names is not None:
+			if not isinstance(env_names, list):
+				env_names = [env_names]
+			for env_name in env_names:
+				setting = os.environ.get(env_name, None)
+				if setting is not None:
+					break
+		if setting is None:
+			setting = self._config.get(name, None)
+		if setting is None:
+			if default is not None:
+				return default
+			else:
+				raise LookupError('Cannot find value for setting %s' % name)
+		return setting
 
 def _bool(truth_value):
-    if isinstance(truth_value, bool):
-        return truth_value
-    if isinstance(truth_value, int):
-        return bool(truth_value)
-    if isinstance(truth_value, str):
-        if truth_value.isnumeric():
-            return bool(int(truth_value))
-        lower = truth_value.lower()
-        return lower.startswith('t') or lower.startswith('y') # accepts things like 'yes', 'True', ...
-    raise ValueError('invalid type for bool coercion')
+	if isinstance(truth_value, bool):
+		return truth_value
+	if isinstance(truth_value, int):
+		return bool(truth_value)
+	if isinstance(truth_value, str):
+		if truth_value.isnumeric():
+			return bool(int(truth_value))
+		lower = truth_value.lower()
+		return lower.startswith('t') or lower.startswith('y') # accepts things like 'yes', 'True', ...
+	raise ValueError('invalid type for bool coercion')
 
 def _list(item):
-    if isinstance(item, list):
-        return item
-    return [item]
+	if isinstance(item, list):
+		return item
+	return [item]
 
 c = Config(CONFIG_FILE)
 
