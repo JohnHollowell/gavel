@@ -334,13 +334,13 @@ def annotator_detail(annotator_id):
 		app.logger.setLevel(logging.INFO)
 
 
-		counts = {}
-		# for each category, find all decisions for this annotator in that category and add them up
-		for category in categories:
-			decisions = Decision.query.filter(Decision.annotator_id == annotator.id).filter(Decision.category_id == category.id).all()
-			for d in decisions:
-				counts[d.category_id] = counts.get(d.category_id, 0) + 1
-			print("filtering {}\'s {} category. found {}".format(annotator.id, category.id,counts.get(d.category_id, 0)))
+		# counts = {}
+		# # for each category, find all decisions for this annotator in that category and add them up
+		# for category in categories:
+		# 	decisions = Decision.query.filter(Decision.annotator_id == annotator.id).filter(Decision.category_id == category.id).all()
+		# 	for d in decisions:
+		# 		counts[d.category_id] = counts.get(d.category_id, 0) + 1
+		# 	print("filtering {}\'s {} category. found {}".format(annotator.id, category.id,counts.get(d.category_id, 0)))
 
 		seen = [
 			ic.item_id
@@ -362,7 +362,7 @@ def annotator_detail(annotator_id):
 			'admin_annotator.html',
 			annotator=annotator,
 			login_link=annotator_link(annotator),
-			counts=counts,
+			# counts=counts,
 			seen=seen,
 			skipped=skipped,
 			categories=categories
